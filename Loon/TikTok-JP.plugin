@@ -1,28 +1,34 @@
-#!name=TikTok JP
-#!desc=解锁 TikTok 日本 地区
-#!openUrl=https://github.com/Semporia/TikTok-Unlock
-#!author=Semporia
-#!homepage=https://github.com/Semporia/TikTok-Unlock
-#!icon= https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/TikTok.png
+#!name= TikTokJP
+#!desc= 最后更新时间 2023-10-07 14:23:54
+#!openUrl= https://github.com/Semporia/TikTok-Unlock
+#!author= Semporia
+#!homepage= https://github.com/Semporia/TikTok-Unlock
+#!icon= https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/source/avatar.jpg
+#!domain-keyword= 1
+#!domain-suffix= 9
+#!user-agent= 1
+#!redirect= 4
+#!mitm= 3
+#!total= 18
 
 [Rule]
-DOMAIN-SUFFIX,byteoversea.com
-DOMAIN-SUFFIX,ibytedtos.com
-DOMAIN-SUFFIX,ipstatp.com
-DOMAIN-SUFFIX,muscdn.com
-DOMAIN-SUFFIX,musical.ly
-DOMAIN-SUFFIX,tik-tokapi.com
-DOMAIN-SUFFIX,tiktok.com
-DOMAIN-SUFFIX,tiktokcdn.com
-DOMAIN-SUFFIX,tiktokv.com
-DOMAIN-KEYWORD,-tiktokcdn-com
-USER-AGENT,tiktok*
+DOMAIN-KEYWORD,-tiktokcdn-com,PROXY
+DOMAIN-SUFFIX,byteoversea.com,PROXY
+DOMAIN-SUFFIX,ibytedtos.com,PROXY
+DOMAIN-SUFFIX,ipstatp.com,PROXY
+DOMAIN-SUFFIX,muscdn.com,PROXY
+DOMAIN-SUFFIX,musical.ly,PROXY
+DOMAIN-SUFFIX,tik-tokapi.com,PROXY
+DOMAIN-SUFFIX,tiktok.com,PROXY
+DOMAIN-SUFFIX,tiktokcdn.com,PROXY
+DOMAIN-SUFFIX,tiktokv.com,PROXY
+USER-AGENT,tiktok*,PROXY
 
-[URL Rewrite]
-(?<=_region=)CN(?=&) JP 307
+[Rewrite]
 (?<=&mcc_mnc=)4 2 307
-^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+) $1$4 302
 (?<=\d\/\?\w{7}_\w{4}=)1[6-9]..(?=.?.?&) 18.4 307
+(?<=_region=)CN(?=&) JP 307
+^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+) $1$4 302
 
 [MITM]
-hostname = *.tiktokv.com,*.byteoversea.com,*.tik-tokapi.com
+hostname = *.byteoversea.com,*.tik-tokapi.com,*.tiktokv.com
